@@ -1,5 +1,4 @@
 import { RATIO } from "./consts";
-import { PlayEventHandler, TickArgsObject } from "./types";
 
 export function getPlayEventListener(
   video,
