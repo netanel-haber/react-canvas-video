@@ -3,8 +3,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 import { Dialog } from "@material-ui/core";
 import React, { useState } from "react";
 
-import { VideoPlayer } from "../VideoPlayer";
-import { withReversePortal } from "./withReversePortal";
+import { VideoPlayer } from "./VideoPlayer";
+import { withReversePortal } from "./atoms/withReversePortal";
 
 var VideoPlayerWithReversePortal = withReversePortal(VideoPlayer);
 
