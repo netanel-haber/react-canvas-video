@@ -6,7 +6,7 @@ import { withReversePortal } from "./atoms/withReversePortal";
 
 const VideoPlayerWithReversePortal = withReversePortal(VideoPlayer);
 
-export const VideoPlayerWithFullScreen = ({
+export default VideoPlayerWithFullScreen = ({
   fullScreen = false,
   src,
   poster,
