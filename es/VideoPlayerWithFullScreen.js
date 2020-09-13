@@ -8,7 +8,7 @@ import { withReversePortal } from "./atoms/withReversePortal";
 
 var VideoPlayerWithReversePortal = withReversePortal(VideoPlayer);
 
-export default VideoPlayerWithFullScreen = function VideoPlayerWithFullScreen(_ref) {
+var VideoPlayerWithFullScreen = function VideoPlayerWithFullScreen(_ref) {
   var _ref$fullScreen = _ref.fullScreen,
       fullScreen = _ref$fullScreen === undefined ? false : _ref$fullScreen,
       src = _ref.src,
@@ -30,3 +30,5 @@ export default VideoPlayerWithFullScreen = function VideoPlayerWithFullScreen(_r
     }
   }, { poster: poster, src: src, toggleFullScreen: toggleFullScreen }));
 };
+
+export default VideoPlayerWithFullScreen;
