@@ -1,2 +1,1 @@
-import Player from './VideoPlayerWithFullScreen';
-export default Player;
+export { default } from './VideoPlayerWithFullScreen';

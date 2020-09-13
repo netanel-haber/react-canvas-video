@@ -8,13 +8,12 @@ import ProgressBar from "./atoms/ProgressBar";
 import TimeCounter from "./atoms/TimeCounter";
 import VolumeBar from "./atoms/VolumeBar";
 import { BAR_HEIGHT } from "./consts";
-import { BarProps } from "./types";
 
 const Bar = ({
   className = undefined,
   video,
   toggleFullScreen,
-}: BarProps): JSX.Element => {
+}) => {
   return (
     <div className={className}>
       <PlayPauseBtn video={video} />

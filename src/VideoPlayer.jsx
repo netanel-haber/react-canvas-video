@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
 import { Canvas } from "./atoms/Canvas";
 import Bar from "./Bar";
 import {
   createVideo,
   getPlayEventListener,
-  togglePlay,
+  togglePlay
 } from "./playingUtilityFunctions";
-import { VideoPlayerProps } from "./types";
+
 
 export const VideoPlayer = styled(
   ({
@@ -16,23 +15,21 @@ export const VideoPlayer = styled(
     toggleFullScreen,
     poster,
     className = undefined,
-  }: VideoPlayerProps) => {
-    const [hiddenVideo, updateHiddenVideo] = useState<HTMLVideoElement>();
-    const [canvasRef, updateCanvasRef] = useState<HTMLCanvasElement | null>(
-      null
-    );
+  }) => {
+    const [hiddenVideo, updateHiddenVideo] = useState();
+    const [canvasRef, updateCanvasRef] = useState(null);
 
     useEffect(() => {
       if (!hiddenVideo || !canvasRef) return;
       const playEventListener = getPlayEventListener(hiddenVideo, canvasRef);
       hiddenVideo.addEventListener("play", playEventListener);
-      return (): void =>
+      return () =>
         hiddenVideo.removeEventListener("play", playEventListener);
     }, [hiddenVideo, canvasRef]);
 
     useEffect(() => {
       !hiddenVideo && updateHiddenVideo(createVideo(src));
-      return (): void => {
+      return () => {
         if (hiddenVideo) {
           hiddenVideo.paused && hiddenVideo.pause();
           hiddenVideo.remove();
@@ -43,9 +40,9 @@ export const VideoPlayer = styled(
     return (
       <div className={className}>
         <Canvas
-          onContextMenu={(e): void => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
           poster={poster}
-          onClick={(): void => togglePlay(hiddenVideo)}
+          onClick={() => togglePlay(hiddenVideo)}
           ref={updateCanvasRef}
         />
         {hiddenVideo && (

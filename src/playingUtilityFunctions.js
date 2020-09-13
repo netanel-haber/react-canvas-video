@@ -2,18 +2,18 @@ import { RATIO } from "./consts";
 import { PlayEventHandler, TickArgsObject } from "./types";
 
 export function getPlayEventListener(
-  video: HTMLVideoElement,
-  canvas: HTMLCanvasElement
-): PlayEventHandler {
+  video,
+  canvas
+) {
   const { clientWidth } = canvas;
   canvas.width = clientWidth;
   canvas.height = clientWidth / RATIO;
   const context = canvas.getContext("2d");
-  return (): void =>
+  return () =>
     requestVideoToBeAnimatedToCanvas({ video, context, canvas });
 }
 
-export function createVideo(src: string): HTMLVideoElement {
+export function createVideo(src) {
   const video = document.createElement("video");
   const source = document.createElement("source");
   source.setAttribute("src", src);
@@ -25,7 +25,7 @@ function requestVideoToBeAnimatedToCanvas({
   video,
   context,
   canvas,
-}: TickArgsObject): void {
+}) {
   context?.drawImage?.(video, 0, 0, canvas.width, canvas.height);
   if (video.paused || video.ended) return;
   requestAnimationFrame(() =>
@@ -33,6 +33,6 @@ function requestVideoToBeAnimatedToCanvas({
   );
 }
 
-export function togglePlay(video: HTMLVideoElement | undefined): void {
+export function togglePlay(video) {
   if (video) video.paused ? video.play() : video.pause();
 }
