@@ -15,19 +15,19 @@ export const withReversePortal = (
     ...props
   }) => {
     const portalNode = React.useMemo(portals.createHtmlPortalNode, []);
-    const outPortal = <portals.OutPortal node={portalNode} />;
+    const outPortal = <portals.OutPortal key="out-portal" node={portalNode} />;
     return (
-      <>
-        <portals.InPortal node={portalNode}>
+      [
+        <portals.InPortal key="in-portal" node={portalNode}>
           <Component {...props} />
-        </portals.InPortal>
-        {isDefaultState
+        </portals.InPortal>,
+        isDefaultState
           ? outPortal
           : createPortal(
-            <NonDefaultStateComp>{outPortal}</NonDefaultStateComp>,
+            <NonDefaultStateComp key="out-portal-container">{outPortal}</NonDefaultStateComp>,
             portal
-          )}
-      </>
+          )
+      ]
     );
   };
   WithReversedPortal.displayName = Component.name;

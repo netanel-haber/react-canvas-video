@@ -26,7 +26,9 @@ function requestVideoToBeAnimatedToCanvas({
   context,
   canvas,
 }) {
-  context?.drawImage?.(video, 0, 0, canvas.width, canvas.height);
+  if (!context)
+    return;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
   if (video.paused || video.ended) return;
   requestAnimationFrame(() =>
     requestVideoToBeAnimatedToCanvas({ video, context, canvas })
