@@ -1,7 +1,6 @@
 {
-  "name": "react-canvas-video",
-  "url": "http://react-canvas-video.surge.sh/",
-  "version": "0.0.4",
+  "name": "rcv-full-screen",
+  "version": "0.0.5",
   "description": "React component, that protects your videos from being downloaded.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -17,8 +16,7 @@
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server",
-    "prepare": "nwb build-react-component"
+    "test:watch": "nwb test-react --server"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
@@ -39,10 +37,9 @@
   "devDependencies": {
     "nwb": "0.20.x"
   },
-  "author": "Amazing Design / Mateusz Choma",
-  "homepage": "https://amazingdesign.eu",
+  "author": "Netanel Haber",
   "license": "MIT",
-  "repository": "https://github.com/AmazingDesign/react-canvas-video",
+  "repository": "https://github.com/netanel-haber/react-canvas-video",
   "keywords": [
     "react-component",
     "video",
